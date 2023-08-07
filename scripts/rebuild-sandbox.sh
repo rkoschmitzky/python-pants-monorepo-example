@@ -16,4 +16,4 @@ python3 -m venv .venv
 source .venv/Scripts/activate
 echo "$(which python)"
 python -m pip install --upgrade -r $(git rev-parse --show-toplevel)/pip-requirements.txt
-python -m pip install -r $(git rev-parse --show-toplevel)/dev-requirements.txt
+python -m pip install -r $(git rev-parse --show-toplevel)/dev-requirements.txt -r requirements.txt
