@@ -15,4 +15,7 @@ def add2(x: int, y: int) -> int:
 
 
 def foobar(x, y):
-    print("This is an insaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaanely long line.")
+    print(
+        "This is an "
+        "insaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaanely long"
+        " line, but now it stays <=120 characters.")
