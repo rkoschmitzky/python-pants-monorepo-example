@@ -11,9 +11,23 @@
 
 set -x
 
+# jump to project root
+cd "$(git rev-parse --show-toplevel)" || { echo "Failure"; exit 1; }
+
+# re-init virtual env
 rm -Rf ".venv"
 python3 -m venv .venv
-source .venv/Scripts/activate
+
+# Conditional block for Linux
+if [ "$(uname -s)" = "Linux" ]; then
+    source .venv/bin/activate
+else
+    # we are likely on windows
+    source .venv/Scripts/activate
+fi
+
+# verify that we are using the inpreteter from our virtual env
 echo "$(which python)"
-python -m pip install --upgrade -r $(git rev-parse --show-toplevel)/pip-requirements.txt
-python -m pip install -r $(git rev-parse --show-toplevel)/dev-requirements.txt -r requirements.txt
+
+python -m pip install --upgrade -r pip-requirements.txt
+python -m pip install -r dev-requirements.txt -r requirements.txt
