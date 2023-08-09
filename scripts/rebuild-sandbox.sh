@@ -12,7 +12,8 @@
 set -x
 
 # jump to project root
-cd "$(git rev-parse --show-toplevel)" || { echo "Failure"; exit 1; }
+project_root="$(git rev-parse --show-toplevel)" || { echo "Failure"; exit 1; }
+cd "$project_root"
 
 # re-init virtual env
 rm -Rf ".venv"
@@ -27,7 +28,13 @@ else
 fi
 
 # verify that we are using the inpreteter from our virtual env
-echo "$(which python)"
+which python
 
 python -m pip install --upgrade -r pip-requirements.txt
-python -m pip install -r dev-requirements.txt -r requirements.txt
+python -m pip install poetry
+
+export POETRY_VIRTUALENVS_CREATE=0
+export POETRY_VIRTUALENVS_PATH="$project_root/.venv"
+export POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON=1
+
+poetry install --no-root --no-cache -v

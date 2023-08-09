@@ -6,6 +6,15 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
+name = "mycorp-full"
+version = "0.0.1"
+description = "fully featured package for mycorp"
+authors = [ "Foo Bar <foo@bar.com>" ]
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+mycorp-base = { path = "libs/base", develop = true  }
+mycorp-fancy = { path = "libs/fancy", develop = true  }
 
 [tool.poetry.dev-dependencies]
 black = "^23.1.0"
