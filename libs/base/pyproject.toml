@@ -8,7 +8,7 @@ version = "0.0.1"
 description = "Shared library"
 authors = [ "Clément Hurlin <clement.hurlin@tweag.io>" ]
 packages = [
-  { include = "mycorp" }
+  { include = "mycorp" },
 ]
 
 [tool.poetry.dependencies]

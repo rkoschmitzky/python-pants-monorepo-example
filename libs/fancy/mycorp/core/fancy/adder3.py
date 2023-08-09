@@ -1,6 +1,6 @@
 """Example module of the fancy library, consuming the base library"""
 
-from mycorp import base
+from mycorp.core import base
 
 
 def add3(x: int, y: int, z: int) -> int:

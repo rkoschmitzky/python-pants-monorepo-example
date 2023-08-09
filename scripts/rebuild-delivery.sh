@@ -37,7 +37,7 @@ export POETRY_VIRTUALENVS_CREATE=0
 export POETRY_VIRTUALENVS_PATH="$project_root/.venv"
 export POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON=1
 
-poetry install --no-root --no-cache -v --only dev
+poetry install --no-root --no-cache -v --only main
 
 # for testing we are not interested to create a lockfile
 rm poetry.lock
